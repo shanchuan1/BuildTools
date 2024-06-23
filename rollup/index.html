@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器环境下使用umd与esm模块</title>
+</head>
+<body>
+    <!-- umd -->
+    <!-- <script src="/dist/my-lib.umd.js"></script>
+    <script>
+    console.log(MyLib.foo() + 'umd'); // Hello, foo!
+    </script> -->
+
+    <!-- esm -->
+    <!-- 1. <script type="module">标签加载的ES模块（ESM）具有自己独立的作用域 -->
+    <!-- <script type="module" src="/dist/my-lib.esm.js"></script> -->
+
+    <!-- 2. -->
+    <!-- <script type="module">
+        import { bar } from '/dist/my-lib.esm.js';
+        console.log(bar()  + 'esm'); // Hello, bar!
+    </script> -->
+
+
+    <!-- 3. -->
+    <script>
+        async function loadAndRun() {
+          const { bar } = await import('/dist/my-lib.esm.js');
+          console.log(bar() + ' esm --- await'); // Hello, bar! esm
+        }
+        loadAndRun();
+    </script>
+</body>
+</html>

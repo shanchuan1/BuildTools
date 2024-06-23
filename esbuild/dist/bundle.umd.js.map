@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/index.js", "../src/utils.js"],
+  "sourcesContent": ["import { hello } from './utils';\r\n\r\nconsole.log(hello());\r\n\r\nexport { hello };\r\n", "export function hello() {\r\n    return 'Hello, world!';\r\n}\r\n"],
+  "mappings": "wJAAA,4BCAO,YAAiB,CACpB,MAAO,gBDCX,QAAQ,IAAI",
+  "names": []
+}
