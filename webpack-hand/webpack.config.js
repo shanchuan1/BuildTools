@@ -1,6 +1,7 @@
 const path = require("path");
 const { WebpackRunPlugin, WebpackDonePlugin } = require("./webpack");
 const { loader1, loader2 } = require("./webpack");
+const { styleLoader, cssLoader, lessLoader } = require('./src/loader')
 
 module.exports = {
   mode: "development", //防止代码被压缩
@@ -16,6 +17,14 @@ module.exports = {
       {
         test: /\.js$/,
         use: [loader1, loader2],
+      },
+      {
+        test: /\.less$/,
+        use: [
+          styleLoader, //将css内容变成style标签插入到html中去
+          cssLoader, //一般会解析url合@import等语法
+          lessLoader, //将less=>css
+        ],
       },
     ],
   },
